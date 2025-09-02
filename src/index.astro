@@ -1,0 +1,51 @@
+---
+// src/pages/index.astro
+import StarlightLayout from '@astrojs/starlight/layouts/Starlight.astro';
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+import '../styles/home.css'; // We will create this CSS file next
+
+// Configuration for this specific page to hide Starlight's usual UI elements
+const frontmatter = {
+  title: 'AI Prompts Generator', // Your page title
+  template: 'splash', // Use Starlight's splash template for full-width content
+  editUrl: false, // Hide the "Edit this page" link
+  tableOfContents: {
+    maxHeadingLevel: 0 // Hide Table of Contents
+  },
+  pagefind: false // Don't index this page for search if it's purely a UI
+};
+---
+
+<StarlightLayout frontmatter={frontmatter}>
+  <div class="homepage-container">
+    <div class="hero-section">
+      <h1 class="site-title">AI Prompts Generator</h1>
+      <div class="input-area">
+        <input type="text" placeholder="Enter your topic or idea..." class="prompt-input" />
+        <button class="heart-button">♡</button>
+      </div>
+      <button class="generate-button">Generate Prompt</button>
+    </div>
+
+    <div class="graphic top-left-ai"></div>
+    <div class="graphic cube"></div>
+    <div class="graphic hand"></div>
+    <div class="graphic lightbulb"></div>
+    <div class="graphic network-globe"></div>
+    <div class="graphic user-left"></div>
+    <div class="graphic user-right"></div>
+    <div class="graphic notepad"></div>
+
+
+    <footer class="homepage-footer">
+      Copyright inteliges.com
+    </footer>
+  </div>
+</StarlightLayout>
+
+<style is:global>
+  /* Basic global overrides for the homepage if needed */
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll from absolute positioning */
+  }
+</style>
